@@ -2589,7 +2589,7 @@ index c0626e8f9a45..3cd0550eb314 100644
 -      else
 -        SET_SHARED_LIBRARY_ORIGIN="-Wl,-z,origin $SET_EXECUTABLE_ORIGIN"
 -      fi
-+      SET_SHARED_LIBRARY_ORIGIN="-Wl,-z,origin $SET_EXECUTABLE_ORIGIN"
++      SET_SHARED_LIBRARY_ORIGIN='-Wl,-rpath,\$$$$ORIGIN[$]1'
      fi
  
    elif test "x$TOOLCHAIN_TYPE" = xxlc; then
