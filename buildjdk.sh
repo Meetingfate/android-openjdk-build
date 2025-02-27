@@ -78,9 +78,9 @@ git apply --reject --whitespace=fix ../patches/jdk21u_android.diff || echo "git 
 bash ./configure \
     --with-version-pre=" " \
     --openjdk-target=$TARGET \
-    --with-extra-cflags="$CFLAGS" \
-    --with-extra-cxxflags="$CFLAGS" \
-    --with-extra-ldflags="$LDFLAGS" \
+    --with-extra-cflags="-DLE_STANDALONE -Wno-error=int-conversion -Wno-error=implicit-function-declaration -O3 -mllvm -polly -DANDROID" \
+    --with-extra-cxxflags="-DLE_STANDALONE -Wno-error=int-conversion -Wno-error=implicit-function-declaration -O3 -mllvm -polly -DANDROID" \
+    --with-extra-ldflags="-L${PWD}/dummy_libs -Wl,-rpath=/data/data/com.construct.shell/files/tools/lib" \
     --disable-precompiled-headers \
     --disable-warnings-as-errors \
     --enable-option-checking=fatal \
